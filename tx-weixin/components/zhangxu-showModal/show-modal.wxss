@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+._showModal.data-v-121ec5bb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+}
+._showModal ._shade.data-v-121ec5bb {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .6;
+  z-index: 11000;
+}
+._showModal ._modalBox.data-v-121ec5bb {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._showModal ._modalBox ._modal.data-v-121ec5bb {
+  flex: none;
+  width: 70%;
+  background: #fff;
+  border-radius: 10rpx;
+}
+._showModal ._modalBox ._modal .title.data-v-121ec5bb {
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: bold;
+  padding: 15rpx 0 0;
+}
+._showModal ._modalBox ._modal .content.data-v-121ec5bb {
+  padding: 30rpx;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 35rpx;
+  text-align: center;
+}
+._showModal ._modalBox ._modal .btnbox.data-v-121ec5bb {
+  display: flex;
+}
+._showModal ._modalBox ._modal .btnbox .btn.data-v-121ec5bb {
+  font-size: 30rpx;
+  text-align: center;
+  flex: auto;
+  line-height: 80rpx;
+  border-top: 1rpx solid #e1e1e1;
+  border-right: 1rpx solid #e1e1e1;
+}
+._showModal ._modalBox ._modal .btnbox .btn.data-v-121ec5bb:last-child {
+  border-right: none;
+}
+

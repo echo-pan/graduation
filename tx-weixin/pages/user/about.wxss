@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page {
+  background: #f8f8f8;
+  padding-top: 16rpx;
+}
+.row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 30rpx;
+  height: 110rpx;
+  background: #fff;
+}
+.row .tit {
+  flex-shrink: 0;
+  width: 120rpx;
+  font-size: 30rpx;
+  color: #303133;
+}
+.row .tiv {
+  flex: 1;
+  font-size: 30rpx;
+  color: #aaaaaa;
+  text-align: right;
+}
+.tcp {
+  width: 100%;
+  font-size: 28rpx;
+  color: #aaaaaa;
+  text-align: center;
+  position: absolute;
+  bottom: 200rpx;
+}
+

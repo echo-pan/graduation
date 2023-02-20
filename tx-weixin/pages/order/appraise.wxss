@@ -1,0 +1,217 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page {
+  background-color: #FFFFFF;
+}
+@font-face {
+  font-family: uniicons;
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://img-cdn-qiniu.dcloud.net.cn/fonts/uni.ttf") format("truetype");
+}
+view {
+  font-size: 28rpx;
+}
+.input-view {
+  font-size: 28rpx;
+}
+.close-view {
+  text-align: center;
+  line-height: 14px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #FF5053;
+  color: #FFFFFF;
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  font-size: 12px;
+}
+/* 上传 */
+.uni-uploader {
+  flex: 1;
+  flex-direction: column;
+}
+.uni-uploader-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.uni-uploader-info {
+  color: #B2B2B2;
+}
+.uni-uploader-body {
+  margin-top: 16rpx;
+}
+.uni-uploader__files {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.uni-uploader__file {
+  margin: 10rpx;
+  width: 210rpx;
+  height: 210rpx;
+}
+.uni-uploader__img {
+  display: block;
+  width: 210rpx;
+  height: 210rpx;
+}
+.uni-uploader__input-box {
+  position: relative;
+  margin: 10rpx;
+  width: 208rpx;
+  height: 208rpx;
+  border: 2rpx solid #D9D9D9;
+}
+.uni-uploader__input-box:before,
+.uni-uploader__input-box:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #D9D9D9;
+}
+.uni-uploader__input-box:before {
+  width: 4rpx;
+  height: 79rpx;
+}
+.uni-uploader__input-box:after {
+  width: 79rpx;
+  height: 4rpx;
+}
+.uni-uploader__input-box:active {
+  border-color: #999999;
+}
+.uni-uploader__input-box:active:before,
+.uni-uploader__input-box:active:after {
+  background-color: #999999;
+}
+.uni-uploader__input {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+/*问题反馈*/
+.appraise-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  color: #6f6f74;
+  background-color: #FFFFFF;
+  font-size: 28rpx;
+}
+.appraise-star-view.appraise-title {
+  justify-content: flex-start;
+  margin: 0;
+}
+.appraise-quick {
+  position: relative;
+  padding-right: 40rpx;
+}
+.appraise-quick:after {
+  font-family: uniicons;
+  font-size: 40rpx;
+  content: '\e581';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  color: #bbb;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.appraise-body {
+  background: #fff;
+}
+.appraise-textare {
+  height: 200rpx;
+  font-size: 28rpx;
+  line-height: 34rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 0;
+}
+.appraise-input {
+  font-size: 34rpx;
+  height: 50rpx;
+  min-height: 50rpx;
+  padding: 15rpx 20rpx;
+  line-height: 50rpx;
+}
+.appraise-uploader {
+  padding: 22rpx 20rpx;
+}
+.appraise-star {
+  font-family: uniicons;
+  font-size: 40rpx;
+  margin-left: 6rpx;
+}
+.appraise-star-view {
+  margin-left: 20rpx;
+}
+.appraise-star:after {
+  content: '\e408';
+}
+.appraise-star.active {
+  color: #FFB400;
+}
+.appraise-star.active:after {
+  content: '\e438';
+}
+.appraise-submit {
+  background: #007AFF;
+  color: #FFFFFF;
+  margin: 20rpx;
+}
+/* 单条商品 */
+.goods-box-single {
+  display: flex;
+  padding: 20rpx;
+}
+.goods-box-single .goods-img {
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+}
+.goods-box-single .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx 0 24rpx;
+  overflow: hidden;
+}
+.goods-box-single .right .title {
+  font-size: 30rpx;
+  color: #303133;
+  line-height: 1;
+}
+.goods-box-single .right .attr-box {
+  font-size: 26rpx;
+  color: #909399;
+  padding: 10rpx 12rpx;
+}
+.goods-box-single .right .price {
+  font-size: 30rpx;
+  color: #303133;
+}
+.goods-box-single .right .price:before {
+  content: '￥';
+  font-size: 24rpx;
+  margin: 0 2rpx 0 8rpx;
+}
+

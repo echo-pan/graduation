@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "u-parse": "/components/u-parse/u-parse"
+  }
+}

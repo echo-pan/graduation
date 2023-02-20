@@ -1,0 +1,89 @@
+{
+  "pages": [
+    "pages/start/welcom",
+    "pages/index/index",
+    "pages/groupshop/list",
+    "pages/address/list",
+    "pages/address/create",
+    "pages/product/search",
+    "pages/product/detail",
+    "pages/product/favorite",
+    "pages/product/list",
+    "pages/product/appraise",
+    "pages/user/profile",
+    "pages/cart/cart",
+    "pages/public/login",
+    "pages/public/register",
+    "pages/user/user",
+    "pages/user/about",
+    "pages/order/list",
+    "pages/order/create",
+    "pages/order/detail",
+    "pages/order/appraise",
+    "pages/order/trace",
+    "pages/pay/pay",
+    "pages/pay/success",
+    "pages/notice/notice",
+    "pages/category/category",
+    "pages/service/service",
+    "pages/user/coupons",
+    "pages/set/set",
+    "pages/parity/parity",
+    "pages/parity/PanicbuyingLIst",
+    "pages/Invitation/Invitation",
+    "pages/share/inviteNewPeople",
+    "pages/InvitationList/InvitationList",
+    "pages/PanicBuying/PanicBuying"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "童翔超市",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#2AAC34",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab-icon/tab1.png",
+        "selectedIconPath": "static/tab-icon/tab1_2.png",
+        "iconWidth": "20px",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "static/tab-icon/tab2.png",
+        "selectedIconPath": "static/tab-icon/tab2_2.png",
+        "iconWidth": "20px",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/tab-icon/tab3.png",
+        "selectedIconPath": "static/tab-icon/tab3_2.png",
+        "iconWidth": "20px",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/tab-icon/tab4.png",
+        "selectedIconPath": "static/tab-icon/tab4_2.png",
+        "iconWidth": "20px",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取"
+    }
+  },
+  "usingComponents": {
+    "show-modal": "/components/zhangxu-showModal/show-modal"
+  }
+}

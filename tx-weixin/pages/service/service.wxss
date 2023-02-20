@@ -1,0 +1,22 @@
+
+page{
+	background: #f1f1f1;
+}
+.title{
+	font-size: 32rpx;
+	line-height: 38rpx;
+}
+.service{
+	width: 77rpx;
+	height: 77rpx;
+	border-radius: 5000rpx;
+}
+.content{
+	height: 77rpx;
+	margin-left: 32rpx;
+}
+.phone{
+	color:#2AAB34;
+}
+
+

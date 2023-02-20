@@ -1,0 +1,1 @@
+<view class="Invitation"><image style="width:100%;height:340px;" src="https://s1.ax1x.com/2020/04/07/G2u0DH.png" mode></image><view data-event-opts="{{[['tap',[['naviageToPage',['/pages/parity/parity?type=6&id=49&title=掌柜推荐']]]]]}}" class="btn" bindtap="__e">前往购买</view></view>

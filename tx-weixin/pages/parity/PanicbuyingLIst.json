@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "平价菜场",
+  "usingComponents": {
+    "uni-number-box": "/components/uni-number-box"
+  }
+}

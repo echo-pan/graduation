@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "分类",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "missing": "/components/missing",
+    "uni-number-box": "/components/uni-number-box"
+  }
+}

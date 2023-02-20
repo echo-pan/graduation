@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+/* page,
+.content {
+	background-color: #fff;
+	
+	
+} */
+.actived {
+  font-size: 28rpx;
+  color: #2AAC34;
+  position: relative;
+}
+.badge {
+  background-color: #FF473C;
+  width: 32rpx;
+  height: 32rpx;
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 32rpx;
+  text-align: center;
+  position: absolute;
+  left: 42rpx;
+  bottom: 32rpx;
+}
+.actived:after {
+  display: block;
+  content: '';
+  width: 54rpx;
+  height: 8rpx;
+  background-color: #2AAC34;
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 2px;
+}
+.number-box {
+  width: 73px;
+}
+

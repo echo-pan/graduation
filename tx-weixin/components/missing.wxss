@@ -1,0 +1,28 @@
+
+page.data-v-3c50e20a{
+	 background-color: #F6F5FA;
+}
+.app.data-v-3c50e20a{
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+}
+.line-green.data-v-3c50e20a::after {
+   border-color: #2AAC34;
+}
+.mssing_top.data-v-3c50e20a{
+	 width: 419rpx;
+	 height: 253rpx;
+}
+.mssing_top_img.data-v-3c50e20a{
+	 width: 419rpx;
+	 height: 253rpx;
+}
+.mssing_desc.data-v-3c50e20a{
+	 padding-top: 106rpx;
+	 font-size: 28rpx;
+	 color: #8D8E99;
+}
+

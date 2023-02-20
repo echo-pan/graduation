@@ -1,0 +1,15 @@
+/* pages/start/welcom.wxss */
+.chaoshilogo{
+  width: 100px;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  margin-top: 150px;
+}
+.h1{
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+}

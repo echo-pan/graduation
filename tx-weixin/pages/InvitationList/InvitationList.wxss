@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.InvitationList.data-v-083553e6 {
+  min-height: 100vh;
+  background-color: #F6F5FA;
+  width: 100%;
+  color: #1B1C33;
+  font-size: 32rpx;
+}
+.InvitationList .listBox.data-v-083553e6 {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background-color: #fff;
+  width: 100%;
+  border-top: 1px solid #F6F5FA;
+  padding: 14rpx 30rpx;
+}
+.InvitationList .listBox .img.data-v-083553e6 {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 47px 0 37px;
+}
+

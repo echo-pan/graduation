@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page {
+  background: #f8f8f8;
+}
+.solid-top {
+  border-top: #F2F2F2 solid 2rpx;
+}
+.solid-bottom {
+  border-bottom: #F2F2F2 solid 2rpx;
+}
+.padding-tb-s {
+  padding: 15rpx 30rpx;
+}
+.title {
+  font-size: 32rpx;
+  line-height: 38rpx;
+}
+.content {
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
+.nick-name {
+  color: #2AAB34;
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
+.icon-right {
+  width: 14rpx;
+  height: 27rpx;
+  margin-left: 18rpx;
+}
+

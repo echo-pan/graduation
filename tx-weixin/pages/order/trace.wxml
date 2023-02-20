@@ -1,0 +1,1 @@
+<view class="content"><ali vue-id="4a20e30b-1" datas="{{data.traces}}" bind:__l="__l"></ali></view>
