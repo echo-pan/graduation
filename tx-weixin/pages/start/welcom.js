@@ -16,7 +16,7 @@ Page({
        wx.switchTab({
                      url: '/pages/index/index',
           })
-    },4000)
+    },3000)
 
  },
   /**

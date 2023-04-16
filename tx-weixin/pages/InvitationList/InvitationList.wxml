@@ -1,1 +1,0 @@
-<view class="InvitationList data-v-083553e6"><block wx:for="{{list}}" wx:for-item="item" wx:for-index="i" wx:key="i"><view class="listBox data-v-083553e6"><view class="index data-v-083553e6">{{''+(i+1)+''}}</view><image class="img data-v-083553e6" src="{{item.userDO.avatarUrl}}" mode></image><view class="name">{{''+item.userDO.nickname+''}}</view></view></block></view>

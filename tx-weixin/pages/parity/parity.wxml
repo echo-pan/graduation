@@ -1,1 +1,60 @@
-<view style="background-color:#fff;"><block wx:if="{{iste}}"><view class="padding-lr" style="padding-bottom:22rpx;padding-top:24rpx;background-color:#fff;"><view data-event-opts="{{[['tap',[['naviageToPage',['/pages/product/search']]]]]}}" class="bg-white round flex align-center" style="height:64rpx;border:1px solid #C4C4CC;" bindtap="__e"><view class="flex align-center padding-left"><text class="yticon icon-sousuo" style="margin-right:10rpx;"></text><text class="lem-text-gray" style="font-size:26rpx;">新鲜，搜一下就来了</text></view></view></view></block><view class="flex justify-center"><block wx:if="{{iste}}"><scroll-view class="bg-white" style="width:90%;height:100rpx;overflow-x:scroll;" scroll-with-animation="{{true}}" scroll-x="{{true}}" scroll-into-view="{{curentTabView}}"><view class="flex  align-start"><block wx:for="{{slist}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><view class="{{['flex','align-center','justify-center','margin-left-sm',(item.id==currentIded)?'actived':'']}}" style="padding:20rpx 0;box-sizing:border-box;width:auto;flex-shrink:0;" id="{{'id'+item.id}}" data-event-opts="{{[['tap',[['sTabTap',['$0'],[[['slist','id',item.id]]]]]]]}}" bindtap="__e"><view style="font-size:28rpx;line-height:40rpx;">{{item.title}}</view></view></block></view></scroll-view></block></view><view style="padding:40rpx 30rpx;"><image style="width:690rpx;height:170rpx;border-radius:12rpx;" src="https://s1.ax1x.com/2020/04/07/G2usUI.png" mode="aspectFill"></image></view><view style="background-color:#fff;padding:8px 20px 0;"><block wx:for="{{tlist}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['navToDetail',['$0'],[[['tlist','',index,'spuId']]]]]]]}}" class=" padding-tb-sm padding-lr-xs flex" style="width:100%;height:180rpx;border-bottom:solid #E6E6E6 1rpx;" bindtap="__e"><image class="round" style="width:144rpx;height:144rpx;margin-right:50rpx;" src="{{item.spuImg}}" mode="aspectFit"></image><view style="padding-top:4rpx;padding-bottom:2rpx;flex-grow:1;"><view class="text-black padding-bottom-xs text-cut" style="font-size:30rpx;line-height:42rpx;width:300rpx;">{{item.spuTitle}}</view><view class="flex justify-between" style="width:100%;padding-top:12rpx;"><view class="flex align-center" style="flex-grow:1;"><view class="text-black padding-right-sm" style="font-size:30rpx;line-height:42rpx;">{{"￥"+item.spuPrice/100}}</view><view class="text-black padding-right-sm" style="font-size:30rpx;line-height:42rpx;text-decoration:line-through;color:#8D8E99;">{{"￥"+item.spuOriginalPrice/100}}</view></view><block wx:if="{{item.num!==0}}"><uni-number-box class="number-box" vue-id="{{'aa2466c0-1-'+index}}" min="{{0}}" value="{{item.num}}" isMin="{{item.num===0}}" index="{{index}}" data-event-opts="{{[['^eventChange',[['numberChange']]]]}}" bind:eventChange="__e" bind:__l="__l"></uni-number-box></block><block wx:if="{{item.num==0}}"><image style="width:44rpx;height:44rpx;" src="/static/add.png" mode="aspectFit" data-event-opts="{{[['tap',[['addCart',[index]]]]]}}" catchtap="__e"></image></block></view></view></view></block></view><view style="position:relative;height:100rpx;"></view><view class="bg-white flex align-end" style="position:fixed;bottom:0;width:750rpx;height:98rpx;padding-left:38rpx;"><view data-event-opts="{{[['tap',[['navCart',['$event']]]]]}}" class="flex align-end" style="width:346rpx;height:98rpx;padding-bottom:16rpx;" bindtap="__e"><view style="position:relative;"><image style="width:56rpx;height:52rpx;" src="/static/tab-icon/tab3_2.png" mode="aspectFit"></image><block wx:if="{{cartNum+cartNums}}"><view class="badge round">{{cartNum+cartNums}}</view></block></view><view style="font-size:28rpx;line-height:40rpx;color:#8D8E99;padding-left:40rpx;">{{'已选'+(cartNum+cartNums)+'件'}}</view></view><view data-event-opts="{{[['tap',[['navToCart',['$event']]]]]}}" class="flex align-center justify-center bg-green " style="font-size:28rpx;line-height:40rpx;width:404rpx;height:98rpx;" bindtap="__e">去购物车</view></view></view>
+<view style="background-color:#fff;">
+  <block wx:if="{{iste}}">
+    <view class="padding-lr" style="padding-bottom:22rpx;padding-top:24rpx;background-color:#fff;">
+      <view data-event-opts="{{[['tap',[['naviageToPage',['/pages/product/search']]]]]}}" class="bg-white round flex align-center" style="height:64rpx;border:1px solid #C4C4CC;" bindtap="__e">
+        <view class="flex align-center padding-left"><text class="yticon icon-sousuo" style="margin-right:10rpx;"></text><text class="lem-text-gray" style="font-size:26rpx;">新鲜，搜一下就来了</text></view>
+      </view>
+    </view>
+  </block>
+  <view class="flex justify-center">
+    <block wx:if="{{iste}}">
+      <scroll-view class="bg-white" style="width:90%;height:100rpx;overflow-x:scroll;" scroll-with-animation="{{true}}" scroll-x="{{true}}" scroll-into-view="{{curentTabView}}">
+        <view class="flex  align-start">
+          <block wx:for="{{slist}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id">
+            <view class="{{['flex','align-center','justify-center','margin-left-sm',(item.id==currentIded)?'actived':'']}}" style="padding:20rpx 0;box-sizing:border-box;width:auto;flex-shrink:0;" id="{{'id'+item.id}}" data-event-opts="{{[['tap',[['sTabTap',['$0'],[[['slist','id',item.id]]]]]]]}}" bindtap="__e">
+              <view style="font-size:28rpx;line-height:40rpx;">{{item.title}}</view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </block>
+  </view>
+  <!-- <view style="padding:40rpx 30rpx;">
+    <image style="width:690rpx;height:170rpx;border-radius:12rpx;" src="https://s1.ax1x.com/2020/04/07/G2usUI.png" mode="aspectFill"></image>
+  </view> -->
+  <view style="background-color:#fff;padding:8px 20px 0;">
+    <block wx:for="{{tlist}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view data-event-opts="{{[['tap',[['navToDetail',['$0'],[[['tlist','',index,'spuId']]]]]]]}}" class=" padding-tb-sm padding-lr-xs flex" style="width:100%;height:180rpx;border-bottom:solid #E6E6E6 1rpx;" bindtap="__e">
+        <image class="round" style="width:144rpx;height:144rpx;margin-right:50rpx;" src="{{item.spuImg}}" mode="aspectFit"></image>
+        <view style="padding-top:4rpx;padding-bottom:2rpx;flex-grow:1;">
+          <view class="text-black padding-bottom-xs text-cut" style="font-size:30rpx;line-height:42rpx;width:300rpx;">{{item.spuTitle}}</view>
+          <view class="flex justify-between" style="width:100%;padding-top:12rpx;">
+            <view class="flex align-center" style="flex-grow:1;">
+              <view class="text-black padding-right-sm" style="font-size:30rpx;line-height:42rpx;">{{"￥"+item.spuPrice/100}}</view>
+              <view class="text-black padding-right-sm" style="font-size:30rpx;line-height:42rpx;text-decoration:line-through;color:#8D8E99;">{{"￥"+item.spuOriginalPrice/100}}</view>
+            </view>
+            <block wx:if="{{item.num!==0}}">
+              <uni-number-box class="number-box" vue-id="{{'aa2466c0-1-'+index}}" min="{{0}}" value="{{item.num}}" isMin="{{item.num===0}}" index="{{index}}" data-event-opts="{{[['^eventChange',[['numberChange']]]]}}" bind:eventChange="__e" bind:__l="__l"></uni-number-box>
+            </block>
+            <block wx:if="{{item.num==0}}">
+              <image style="width:44rpx;height:44rpx;" src="/static/add.png" mode="aspectFit" data-event-opts="{{[['tap',[['addCart',[index]]]]]}}" catchtap="__e"></image>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view style="position:relative;height:100rpx;"></view>
+  <view class="bg-white flex align-end" style="position:fixed;bottom:0;width:750rpx;height:98rpx;padding-left:38rpx;">
+    <view data-event-opts="{{[['tap',[['navCart',['$event']]]]]}}" class="flex align-end" style="width:346rpx;height:98rpx;padding-bottom:16rpx;" bindtap="__e">
+      <view style="position:relative;">
+        <image style="width:56rpx;height:52rpx;" src="/static/tab-icon/tab3_2.png" mode="aspectFit"></image>
+        <block wx:if="{{cartNum+cartNums}}">
+          <view class="badge round">{{cartNum+cartNums}}</view>
+        </block>
+      </view>
+      <view style="font-size:28rpx;line-height:40rpx;color:#8D8E99;padding-left:40rpx;">{{'已选'+(cartNum+cartNums)+'件'}}</view>
+    </view>
+    <view data-event-opts="{{[['tap',[['navToCart',['$event']]]]]}}" class="flex align-center justify-center bg-green " style="font-size:28rpx;line-height:40rpx;width:404rpx;height:98rpx;" bindtap="__e">去购物车</view>
+  </view>
+</view>

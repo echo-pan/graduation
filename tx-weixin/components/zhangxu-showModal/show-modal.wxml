@@ -1,1 +1,28 @@
-<view hidden="{{!(show)}}" class="_showModal _div data-v-121ec5bb"><view class="_shade _div data-v-121ec5bb"></view><view data-event-opts="{{[['tap',[['closeModal',['$event']]]],['touchmove',[['',['$event']]]]]}}" class="_modalBox _div data-v-121ec5bb" bindtap="__e" catchtouchmove="__e"><view class="_modal _div data-v-121ec5bb"><block wx:if="{{$slots.title}}"><slot name="title"></slot></block><block wx:else><view hidden="{{!(title)}}" class="title _div data-v-121ec5bb">{{title}}</view></block><block wx:if="{{$slots.content}}"><slot name="content"></slot></block><block wx:else><view class="content _div data-v-121ec5bb">{{''+content+''}}</view></block><block wx:if="{{$slots.btn}}"><slot name="btn"></slot></block><block wx:else><view class="btnbox _div data-v-121ec5bb"><view data-event-opts="{{[['tap',[['clickBtn',['cancel']]]]]}}" hidden="{{!(showCancel)}}" class="cancel btn _div data-v-121ec5bb" style="{{(cancelColor)}}" catchtap="__e">{{cancelText}}</view><view data-event-opts="{{[['tap',[['clickBtn',['confirm']]]]]}}" class="confirm btn _div data-v-121ec5bb" style="{{(confirmColor)}}" catchtap="__e">{{confirmText}}</view></view></block></view></view></view>
+<view hidden="{{!(show)}}" class="_showModal _div data-v-121ec5bb">
+  <view class="_shade _div data-v-121ec5bb"></view>
+  <view data-event-opts="{{[['tap',[['closeModal',['$event']]]],['touchmove',[['',['$event']]]]]}}" class="_modalBox _div data-v-121ec5bb" bindtap="__e" catchtouchmove="__e">
+    <view class="_modal _div data-v-121ec5bb">
+      <block wx:if="{{$slots.title}}">
+        <slot name="title"></slot>
+      </block>
+      <block wx:else>
+        <view hidden="{{!(title)}}" class="title _div data-v-121ec5bb">{{title}}</view>
+      </block>
+      <block wx:if="{{$slots.content}}">
+        <slot name="content"></slot>
+      </block>
+      <block wx:else>
+        <view class="content _div data-v-121ec5bb">{{''+content+''}}</view>
+      </block>
+      <block wx:if="{{$slots.btn}}">
+        <slot name="btn"></slot>
+      </block>
+      <block wx:else>
+        <view class="btnbox _div data-v-121ec5bb">
+          <view data-event-opts="{{[['tap',[['clickBtn',['cancel']]]]]}}" hidden="{{!(showCancel)}}" class="cancel btn _div data-v-121ec5bb" style="{{(cancelColor)}}" catchtap="__e">{{cancelText}}</view>
+          <view data-event-opts="{{[['tap',[['clickBtn',['confirm']]]]]}}" class="confirm btn _div data-v-121ec5bb" style="{{(confirmColor)}}" catchtap="__e">{{confirmText}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

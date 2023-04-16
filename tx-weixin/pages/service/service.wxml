@@ -1,1 +1,9 @@
-<view><view class="bg-white margin-tb-sm padding flex align-center"><image class="service" src="../../static/service.png" mode="aspectFit"></image><view class="content flex justify-between flex-direction"><view class="lem-text-black title">在线客服</view><view class="phone text-df">121421532</view></view></view></view>
+<view>
+  <view class="bg-white margin-tb-sm padding flex align-center">
+    <image class="service" src="../../static/service.png" mode="aspectFit"></image>
+    <view class="content flex justify-between flex-direction">
+      <view class="lem-text-black title">在线客服</view>
+      <view class="phone text-df">121421532</view>
+    </view>
+  </view>
+</view>

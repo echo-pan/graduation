@@ -1,1 +1,21 @@
-<view><view class="eva-section"><view class="e-header"><text class="tit">评价</text><text>{{"("+page.count+")"}}</text></view><block wx:for="{{page.items}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="eva-box"><image class="portrait" src="{{item.userAvatarUrl?item.userAvatarUrl:'/static/user/touxiang-@2x.png'}}" mode="aspectFill"></image><view class="right"><text class="name">{{item.userNickName?item.userNickName:'用户'+item.userId}}</text><text class="con">{{item.content}}</text><block wx:if="{{item.imgList&&item.imgList.length>0}}"><view class="imgs"><block wx:for="{{item.imgList}}" wx:for-item="imgItem" wx:for-index="imgIndex" wx:key="imgIndex"><image class="ig" src="{{imgItem}}" data-event-opts="{{[['tap',[['previewImg',['$0',imgIndex],[[['page.items','',index,'imgList']]]]]]]}}" bindtap="__e"></image></block></view></block><view class="bot"><text class="attr">{{"购买类型："+item.skuTitle}}</text><text class="time">{{item.gmtCreate}}</text></view></view></view></block></view><uni-load-more vue-id="4b220702-1" status="{{loadingType}}" bind:__l="__l"></uni-load-more></view>
+<view>
+  <view class="eva-section">
+    <view class="e-header"><text class="tit">评价</text><text>{{"("+page.count+")"}}</text></view>
+    <block wx:for="{{page.items}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="eva-box">
+        <image class="portrait" src="{{item.userAvatarUrl?item.userAvatarUrl:'/static/user/touxiang-@2x.png'}}" mode="aspectFill"></image>
+        <view class="right"><text class="name">{{item.userNickName?item.userNickName:'用户'+item.userId}}</text><text class="con">{{item.content}}</text>
+          <block wx:if="{{item.imgList&&item.imgList.length>0}}">
+            <view class="imgs">
+              <block wx:for="{{item.imgList}}" wx:for-item="imgItem" wx:for-index="imgIndex" wx:key="imgIndex">
+                <image class="ig" src="{{imgItem}}" data-event-opts="{{[['tap',[['previewImg',['$0',imgIndex],[[['page.items','',index,'imgList']]]]]]]}}" bindtap="__e"></image>
+              </block>
+            </view>
+          </block>
+          <view class="bot"><text class="attr">{{"购买类型："+item.skuTitle}}</text><text class="time">{{item.gmtCreate}}</text></view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <uni-load-more vue-id="4b220702-1" status="{{loadingType}}" bind:__l="__l"></uni-load-more>
+</view>

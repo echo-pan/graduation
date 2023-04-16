@@ -1,1 +1,99 @@
-<view><block wx:if="{{storage}}"><view><view class="container"><block wx:if="{{!hasLogin||empty===true}}"><view><block wx:if="{{hasLogin}}"><view style="padding-top:180rpx;padding-bottom:180rpx;width:750rpx;"><missing vue-id="1775f8c0-1" buttonName="去添加商品" handlerName="buttonClick" imgUrl="http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png" desc="购物车空空如也，您不添加吗？" data-event-opts="{{[['^buttonClick',[['toCategory']]]]}}" bind:buttonClick="__e" bind:__l="__l"></missing></view></block><block wx:else><view style="padding-top:180rpx;padding-bottom:180rpx;width:750rpx;"><missing vue-id="1775f8c0-2" buttonName="去登录" handlerName="buttonClick" imgUrl="http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png" desc="购物车空空如也，您不添加吗？" data-event-opts="{{[['^buttonClick',[['navToLogin']]]]}}" bind:buttonClick="__e" bind:__l="__l"></missing></view></block></view></block><block wx:else><view><view class="cart-list bg-white padding-lr"><block wx:for="{{cartList}}" wx:for-item="item" wx:for-index="index" wx:key="id"><block><view class="{{['padding-tb','','flex','align-center',index+1<cartList.length?'solid-bottom':'']}}"><block wx:if="{{item.stockless}}"><view style="color:#CFCFCF;font-size:28rpx;line-height:40rpx;flex-shrink:0;">失效</view></block><block wx:else><image style="width:40rpx;height:40rpx;flex-shrink:0;" src="{{item.checked?'/static/cart/selected.png':'/static/cart/select.png'}}" mode="aspectFill" data-event-opts="{{[['tap',[['check',['item',index]]]]]}}" bindtap="__e"></image></block><view style="padding-left:52rpx;flex-shrink:0;"><image class="round" style="width:130rpx;height:130rpx;" src="{{item.skuImg?item.skuImg:item.spuImg}}" mode="aspectFill" lazy-load="{{true}}" data-event-opts="{{[['load',[['onImageLoad',['$0'],[[['cartList','id',item.id]]]]]],['error',[['onImageError',['cartList',index]]]]]}}" bindload="__e" binderror="__e"></image></view><view class="flex justify-between flex-direction" style="padding-left:48rpx;height:180rpx;flex-grow:1;"><view class="flex justify-between align-start"><view class="lem-text-black lem-text-xxl text-2-cut" style="width:400rpx;">{{item.title}}</view><image style="width:32rpx;height:32rpx;margin-top:15rpx;" src="../../static/cart/delete.png" mode="aspectFill" data-event-opts="{{[['tap',[['deleteCartItem',[index]]]]]}}" bindtap="__e"></image></view><view class="flex justify-between align-end"><view class="flex align-center"><view class=" lem-text-xxl padding-right-sm" style="font-weight:500;color:#FC6620;">{{'￥ '+item.price/100}}</view><view style="color:#AEAEAE;font-size:24rpx;line-height:44rpx;padding:0 10rpx;text-decoration:line-through;">{{'￥'+item.originalPrice/100+''}}</view></view><uni-number-box class="number-box" vue-id="{{'1775f8c0-3-'+index}}" min="{{1}}" max="{{item.stock}}" value="{{item.num}}" isMin="{{item.num===0}}" index="{{index}}" forbid="{{item.activityId}}" data-event-opts="{{[['^eventChange',[['numberChange']]]]}}" bind:eventChange="__e" bind:__l="__l"></uni-number-box></view></view></view></block></block></view><block wx:if="{{stockLessList.length>0}}"><view class="cart-list  padding-right butouming" style="border-left:#CFCFCF solid 30rpx;"><view class="flex align-center justify-center" style="padding:40rpx 0 6rpx 0;"><view style="font-size:28rpx;line-height:40rpx;color:#666666;">以下商品因库存不足已失效</view></view><block wx:for="{{stockLessList}}" wx:for-item="item" wx:for-index="index" wx:key="id"><block class="bg-white"><view class="padding-tb solid-bottom flex align-center"><view style="color:#CFCFCF;font-size:28rpx;line-height:40rpx;flex-shrink:0;">失效</view><view style="padding-left:52rpx;flex-shrink:0;"><image class="round" style="width:130rpx;height:130rpx;" src="{{item.skuImg?item.skuImg:item.spuImg}}" mode="aspectFit" lazy-load="{{true}}" data-event-opts="{{[['load',[['onImageLoad',['$0'],[[['stockLessList','id',item.id]]]]]],['error',[['onImageError',['cartList',index]]]]]}}" bindload="__e" binderror="__e"></image></view><view class="flex justify-between flex-direction" style="padding-left:48rpx;height:180rpx;flex-grow:1;"><view class="lem-text-black lem-text-xxl text-2-cut">{{item.title}}</view><view class="flex justify-between align-end"><view class="lem-text-xxl" style="font-weight:500;color:#FC6620;">{{'￥ '+item.price/100}}</view><uni-number-box class="number-box" vue-id="{{'1775f8c0-4-'+index}}" min="{{1}}" value="{{item.num}}" isMin="{{item.num===1}}" index="{{index}}" data-event-opts="{{[['^eventChange',[['numberChange']]]]}}" bind:eventChange="__e" bind:__l="__l"></uni-number-box></view></view></view></block></block><view class="flex align-center justify-center" style="padding:30rpx 0;"><button data-event-opts="{{[['tap',[['clearStockLess',['$event']]]]]}}" class="lem-btn line-gray round" bindtap="__e">清空已失效商品</button></view></view></block><view class="bg-white flex justify-between align-center padding-tb-xs padding-lr" style="position:fixed;bottom:50px;width:750rpx;z-index:99999;"><view data-event-opts="{{[['tap',[['cancelAllAdd',['$event']]]]]}}" class="flex align-center" bindtap="__e"><image style="width:40rpx;height:40rpx;flex-shrink:0;" src="{{allChecked?'/static/cart/selected.png':'/static/cart/select.png'}}" mode="aspectFit"></image><view class="lem-text-grey" style="padding-left:16rpx;font-size:26rpx;line-height:36rpx;">全选</view></view><view style="padding-left:54rpx;"><view class="flex align-center"><view class="lem-text-grey lem-text-lg">总计</view><view class="padding-left-xs lem-text-title" style="color:#FC6620;font-weight:500;">{{"￥ "+total/100.0}}</view></view><view class="lem-text-gray" style="font-size:20rpx;line-height:36rpx;">{{"已优惠："+(yuanjia-total)/100+"元"}}</view></view><button data-event-opts="{{[['tap',[['createOrder',['$event']]]]]}}" class="lem-btn round bg-green lem-text-xl " style="width:240rpx;height:84rpx;font-weight:500;" bindtap="__e">提交订单</button></view></view></block></view></view></block><block wx:else><view style="padding-top:180rpx;padding-bottom:180rpx;width:750rpx;"><missing vue-id="1775f8c0-5" buttonName="换个地址试试吧~" handlerName="buttonClick" imgUrl="http://qiniuoss.nauzone.cn/%E7%BB%84%204%20%E6%8B%B7%E8%B4%9D@3x.png" desc="当前地区不在配送范围哦" data-event-opts="{{[['^buttonClick',[['chooseLocation']]]]}}" bind:buttonClick="__e" bind:__l="__l"></missing></view></block></view>
+<view>
+  <block wx:if="{{storage}}">
+    <view>
+      <view class="container">
+        <block wx:if="{{!hasLogin||empty===true}}">
+          <view>
+            <block wx:if="{{hasLogin}}">
+              <view style="padding-top:180rpx;padding-bottom:180rpx;width:750rpx;">
+                <missing vue-id="1775f8c0-1" buttonName="去添加商品" handlerName="buttonClick" imgUrl="http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png" desc="购物车空空如也，您不添加吗？" data-event-opts="{{[['^buttonClick',[['toCategory']]]]}}" bind:buttonClick="__e" bind:__l="__l"></missing>
+              </view>
+            </block>
+            <block wx:else>
+              <view style="padding-top:180rpx;padding-bottom:180rpx;width:750rpx;">
+                <missing vue-id="1775f8c0-2" buttonName="去登录" handlerName="buttonClick" imgUrl="http://qiniuoss.nauzone.cn/%E7%BB%84%201%20%E6%8B%B7%E8%B4%9D%403x.png" desc="购物车空空如也，您不添加吗？" data-event-opts="{{[['^buttonClick',[['navToLogin']]]]}}" bind:buttonClick="__e" bind:__l="__l"></missing>
+              </view>
+            </block>
+          </view>
+        </block>
+        <block wx:else>
+          <view>
+            <view class="cart-list bg-white padding-lr">
+              <block wx:for="{{cartList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                <block>
+                  <view class="{{['padding-tb','','flex','align-center',index+1<cartList.length?'solid-bottom':'']}}">
+                    <block wx:if="{{item.stockless}}">
+                      <view style="color:#CFCFCF;font-size:28rpx;line-height:40rpx;flex-shrink:0;">失效</view>
+                    </block>
+                    <block wx:else>
+                      <image style="width:40rpx;height:40rpx;flex-shrink:0;" src="{{item.checked?'/static/cart/selected.png':'/static/cart/select.png'}}" mode="aspectFill" data-event-opts="{{[['tap',[['check',['item',index]]]]]}}" bindtap="__e"></image>
+                    </block>
+                    <view style="padding-left:52rpx;flex-shrink:0;">
+                      <image class="round" style="width:130rpx;height:130rpx;" src="{{item.skuImg?item.skuImg:item.spuImg}}" mode="aspectFill" lazy-load="{{true}}" data-event-opts="{{[['load',[['onImageLoad',['$0'],[[['cartList','id',item.id]]]]]],['error',[['onImageError',['cartList',index]]]]]}}" bindload="__e" binderror="__e"></image>
+                    </view>
+                    <view class="flex justify-between flex-direction" style="padding-left:48rpx;height:180rpx;flex-grow:1;">
+                      <view class="flex justify-between align-start">
+                        <view class="lem-text-black lem-text-xxl text-2-cut" style="width:400rpx;">{{item.title}}</view>
+                        <image style="width:32rpx;height:32rpx;margin-top:15rpx;" src="../../static/cart/delete.png" mode="aspectFill" data-event-opts="{{[['tap',[['deleteCartItem',[index]]]]]}}" bindtap="__e"></image>
+                      </view>
+                      <view class="flex justify-between align-end">
+                        <view class="flex align-center">
+                          <view class=" lem-text-xxl padding-right-sm" style="font-weight:500;color:#FC6620;">{{'￥ '+item.price/100}}</view>
+                          <view style="color:#AEAEAE;font-size:24rpx;line-height:44rpx;padding:0 10rpx;text-decoration:line-through;">{{'￥'+item.originalPrice/100+''}}</view>
+                        </view>
+                        <uni-number-box class="number-box" vue-id="{{'1775f8c0-3-'+index}}" min="{{1}}" max="{{item.stock}}" value="{{item.num}}" isMin="{{item.num===0}}" index="{{index}}" forbid="{{item.activityId}}" data-event-opts="{{[['^eventChange',[['numberChange']]]]}}" bind:eventChange="__e" bind:__l="__l"></uni-number-box>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <block wx:if="{{stockLessList.length>0}}">
+              <view class="cart-list  padding-right butouming" style="border-left:#CFCFCF solid 30rpx;">
+                <view class="flex align-center justify-center" style="padding:40rpx 0 6rpx 0;">
+                  <view style="font-size:28rpx;line-height:40rpx;color:#666666;">以下商品因库存不足已失效</view>
+                </view>
+                <block wx:for="{{stockLessList}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+                  <block class="bg-white">
+                    <view class="padding-tb solid-bottom flex align-center">
+                      <view style="color:#CFCFCF;font-size:28rpx;line-height:40rpx;flex-shrink:0;">失效</view>
+                      <view style="padding-left:52rpx;flex-shrink:0;">
+                        <image class="round" style="width:130rpx;height:130rpx;" src="{{item.skuImg?item.skuImg:item.spuImg}}" mode="aspectFit" lazy-load="{{true}}" data-event-opts="{{[['load',[['onImageLoad',['$0'],[[['stockLessList','id',item.id]]]]]],['error',[['onImageError',['cartList',index]]]]]}}" bindload="__e" binderror="__e"></image>
+                      </view>
+                      <view class="flex justify-between flex-direction" style="padding-left:48rpx;height:180rpx;flex-grow:1;">
+                        <view class="lem-text-black lem-text-xxl text-2-cut">{{item.title}}</view>
+                        <view class="flex justify-between align-end">
+                          <view class="lem-text-xxl" style="font-weight:500;color:#FC6620;">{{'￥ '+item.price/100}}</view>
+                          <uni-number-box class="number-box" vue-id="{{'1775f8c0-4-'+index}}" min="{{1}}" value="{{item.num}}" isMin="{{item.num===1}}" index="{{index}}" data-event-opts="{{[['^eventChange',[['numberChange']]]]}}" bind:eventChange="__e" bind:__l="__l"></uni-number-box>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </block>
+                <view class="flex align-center justify-center" style="padding:30rpx 0;"><button data-event-opts="{{[['tap',[['clearStockLess',['$event']]]]]}}" class="lem-btn line-gray round" bindtap="__e">清空已失效商品</button></view>
+              </view>
+            </block>
+            <view class="bg-white flex justify-between align-center padding-tb-xs padding-lr" style="position:fixed;bottom:50px;width:750rpx;z-index:99999;">
+              <view data-event-opts="{{[['tap',[['cancelAllAdd',['$event']]]]]}}" class="flex align-center" bindtap="__e">
+                <image style="width:40rpx;height:40rpx;flex-shrink:0;" src="{{allChecked?'/static/cart/selected.png':'/static/cart/select.png'}}" mode="aspectFit"></image>
+                <view class="lem-text-grey" style="padding-left:16rpx;font-size:26rpx;line-height:36rpx;">全选</view>
+              </view>
+              <view style="padding-left:54rpx;">
+                <view class="flex align-center">
+                  <view class="lem-text-grey lem-text-lg">总计</view>
+                  <view class="padding-left-xs lem-text-title" style="color:#FC6620;font-weight:500;">{{"￥ "+total/100.0}}</view>
+                </view>
+                <view class="lem-text-gray" style="font-size:20rpx;line-height:36rpx;">{{"已优惠："+(yuanjia-total)/100+"元"}}</view>
+              </view><button data-event-opts="{{[['tap',[['createOrder',['$event']]]]]}}" class="lem-btn round bg-green lem-text-xl " style="width:240rpx;height:84rpx;font-weight:500;" bindtap="__e">提交订单</button>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view style="padding-top:180rpx;padding-bottom:180rpx;width:750rpx;">
+      <missing vue-id="1775f8c0-5" buttonName="换个地址试试吧~" handlerName="buttonClick" imgUrl="http://qiniuoss.nauzone.cn/%E7%BB%84%204%20%E6%8B%B7%E8%B4%9D@3x.png" desc="当前地区不在配送范围哦" data-event-opts="{{[['^buttonClick',[['chooseLocation']]]]}}" bind:buttonClick="__e" bind:__l="__l"></missing>
+    </view>
+  </block>
+</view>

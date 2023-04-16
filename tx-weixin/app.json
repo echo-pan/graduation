@@ -2,7 +2,6 @@
   "pages": [
     "pages/start/welcom",
     "pages/index/index",
-    "pages/groupshop/list",
     "pages/address/list",
     "pages/address/create",
     "pages/product/search",
@@ -26,14 +25,8 @@
     "pages/notice/notice",
     "pages/category/category",
     "pages/service/service",
-    "pages/user/coupons",
     "pages/set/set",
-    "pages/parity/parity",
-    "pages/parity/PanicbuyingLIst",
-    "pages/Invitation/Invitation",
-    "pages/share/inviteNewPeople",
-    "pages/InvitationList/InvitationList",
-    "pages/PanicBuying/PanicBuying"
+    "pages/parity/parity"
   ],
   "subPackages": [],
   "window": {
@@ -83,7 +76,7 @@
       "desc": "获取"
     }
   },
-  "usingComponents": {
+  " ": {
     "show-modal": "/components/zhangxu-showModal/show-modal"
   }
 }

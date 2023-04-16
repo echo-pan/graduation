@@ -1,1 +1,39 @@
-<view class="page"><block wx:for="{{orderDetail.skuList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view><view class="goods-box-single"><image class="goods-img" src="{{item.img}}" mode="aspectFill"></image><view class="right"><text class="title clamp">{{item.spuTitle}}</text><text class="attr-box">{{item.title+" x "+item.num}}</text><text class="price">{{item.price/100.0}}</text></view></view><view class="appraise-title appraise-star-view"><text>宝贝评分</text><view class="appraise-star-view"><block wx:for="{{stars}}" wx:for-item="value" wx:for-index="key" wx:key="key"><text data-event-opts="{{[['tap',[['chooseStar',['$0',index],[[['stars','',key]]]]]]]}}" class="{{['appraise-star',key<orderDetail.skuList[index].score?'active':'']}}" bindtap="__e"></text></block></view></view><view class="appraise-body"><textarea class="appraise-textare" placeholder="请输入评价(可空)..." data-event-opts="{{[['input',[['__set_model',['$0','content','$event',[]],[[['orderDetail.skuList','',index]]]]]]]}}" value="{{item.content}}" bindinput="__e"></textarea></view><view class="appraise-body appraise-uploader"><view class="uni-uploader"><view class="uni-uploader-head"><view class="uni-uploader-title" style="color:#6f6f74;">晒一晒</view><view class="uni-uploader-info">{{item.imgs.length+"/8"}}</view></view><view class="uni-uploader-body"><view class="uni-uploader__files"><block wx:for="{{item.imgs}}" wx:for-item="image" wx:for-index="imgIndex" wx:key="imgIndex"><block><view class="uni-uploader__file" style="position:relative;"><image class="uni-uploader__img" src="{{image}}" data-event-opts="{{[['tap',[['previewImage',['$event']]]]]}}" bindtap="__e"></image><view data-event-opts="{{[['tap',[['close',['$0',index,imgIndex],[[['orderDetail.skuList','',index]]]]]]]}}" class="close-view" bindtap="__e">x</view></view></block></block><view hidden="{{!(imageList.length<8)}}" class="uni-uploader__input-box"><view data-event-opts="{{[['tap',[['chooseImg',['$0',index],[[['orderDetail.skuList','',index]]]]]]]}}" class="uni-uploader__input" bindtap="__e"></view></view></view></view></view></view></view></block><button class="appraise-submit" type="primary" data-event-opts="{{[['tap',[['send',['$event']]]]]}}" bindtap="__e">提交</button></view>
+<view class="page">
+  <block wx:for="{{orderDetail.skuList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view>
+      <view class="goods-box-single">
+        <image class="goods-img" src="{{item.img}}" mode="aspectFill"></image>
+        <view class="right"><text class="title clamp">{{item.spuTitle}}</text><text class="attr-box">{{item.title+" x "+item.num}}</text><text class="price">{{item.price/100.0}}</text></view>
+      </view>
+      <view class="appraise-title appraise-star-view"><text>宝贝评分</text>
+        <view class="appraise-star-view">
+          <block wx:for="{{stars}}" wx:for-item="value" wx:for-index="key" wx:key="key"><text data-event-opts="{{[['tap',[['chooseStar',['$0',index],[[['stars','',key]]]]]]]}}" class="{{['appraise-star',key<orderDetail.skuList[index].score?'active':'']}}" bindtap="__e"></text></block>
+        </view>
+      </view>
+      <view class="appraise-body"><textarea class="appraise-textare" placeholder="请输入评价(可空)..." data-event-opts="{{[['input',[['__set_model',['$0','content','$event',[]],[[['orderDetail.skuList','',index]]]]]]]}}" value="{{item.content}}" bindinput="__e"></textarea></view>
+      <view class="appraise-body appraise-uploader">
+        <view class="uni-uploader">
+          <view class="uni-uploader-head">
+            <view class="uni-uploader-title" style="color:#6f6f74;">晒一晒</view>
+            <view class="uni-uploader-info">{{item.imgs.length+"/8"}}</view>
+          </view>
+          <view class="uni-uploader-body">
+            <view class="uni-uploader__files">
+              <block wx:for="{{item.imgs}}" wx:for-item="image" wx:for-index="imgIndex" wx:key="imgIndex">
+                <block>
+                  <view class="uni-uploader__file" style="position:relative;">
+                    <image class="uni-uploader__img" src="{{image}}" data-event-opts="{{[['tap',[['previewImage',['$event']]]]]}}" bindtap="__e"></image>
+                    <view data-event-opts="{{[['tap',[['close',['$0',index,imgIndex],[[['orderDetail.skuList','',index]]]]]]]}}" class="close-view" bindtap="__e">x</view>
+                  </view>
+                </block>
+              </block>
+              <view hidden="{{!(imageList.length<8)}}" class="uni-uploader__input-box">
+                <view data-event-opts="{{[['tap',[['chooseImg',['$0',index],[[['orderDetail.skuList','',index]]]]]]]}}" class="uni-uploader__input" bindtap="__e"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block><button class="appraise-submit" type="primary" data-event-opts="{{[['tap',[['send',['$event']]]]]}}" bindtap="__e">提交</button>
+</view>

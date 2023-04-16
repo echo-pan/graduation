@@ -1,1 +1,4 @@
-<view class="content"><view class="row b-b"><text class="tit">版本号</text><text class="tiv">v1.0.0</text></view><view class="row b-b"><text class="tit">邮箱</text><text class="tiv">shell12306@126.com</text></view><text class="tcp">由童翔超市开发</text></view>
+<view class="content">
+  <view class="row b-b"><text class="tit">版本号</text><text class="tiv">v1.0.0</text></view>
+  <view class="row b-b"><text class="tit">邮箱</text><text class="tiv">shell12306@126.com</text></view><text class="tcp">由童翔超市开发</text>
+</view>

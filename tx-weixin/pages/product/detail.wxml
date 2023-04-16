@@ -1,1 +1,137 @@
-<view class="container"><view class="carousel"><swiper indicator-active-color="#2AAC34" indicator-dots="{{true}}" circular="true" duration="400"><block wx:for="{{goods.imgList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><swiper-item class="swiper-item"><view class="image-wrapper"><image class="loaded" src="{{item}}" mode="aspectFit"></image></view></swiper-item></block></swiper></view><view class="introduce-section"><view class="text-2-cut " style="font-size:36rpx;font-weight:bold;line-height:50rpx;color:#333333;width:686rpx;">{{goods.title}}</view><view class="flex align-start justify-between padding-top-sm"><view class="text-cut" style="width:580rpx;font-size:28rpx;line-height:40rpx;color:#8D8E99;">{{''+goods.description+''}}</view><view class="flex"><view data-event-opts="{{[['tap',[['toFavorite',['$event']]]]]}}" style="text-align:center;" bindtap="__e"><image style="width:42rpx;height:42rpx;" src="../../static/product/collect.png" mode="aspectFit"></image><view style="font-size:20rpx;line-height:28rpx;padding-top:10rpx;">收藏</view></view><view data-event-opts="{{[['tap',[['e0',['$event']]]]]}}" style="text-align:center;padding-left:40rpx;padding-right:6rpx;" bindtap="__e"><image style="width:42rpx;height:42rpx;" src="../../static/product/share.png" mode="aspectFit"></image><view style="font-size:20rpx;line-height:28rpx;padding-top:10rpx;">分享</view></view></view></view><view class="flex align-center justify-between "><view><view class="flex align-center"><view class="text-green" style="font-size:40rpx;line-height:56rpx;font-weight:600;">{{'￥'+goods.stockDto.price/100+''}}</view><block wx:if="{{zhekou>=0}}"><view class="bg-gradual-orange margin-left-sm" style="border-radius:4rpx;padding:0 8rpx;line-height:34rpx;font-size:24rpx;">{{''+zhekou+'折'}}</view></block></view><view style="font-size:28rpx;color:#8D8E99;line-height:40rpx;text-decoration:line-through;padding:10rpx;">{{'￥'+goods.originalPrice/100+"/"+goods.unit+''}}</view></view><view style="font-size:28rpx;color:#8D8E99;line-height:40rpx;">{{''+goods.stockDto.sales+'人购买'}}</view></view></view><block wx:if="{{goods.groupShop}}"><button class="share-section" open-type="share"><view class="share-icon"><text class="yticon icon-xingxing"></text>团</view><text class="tit">{{goods.groupShop.minimumNumber+"人成团，已有"+goods.groupShop.alreadyBuyNumber+"人参团"}}</text><text class="yticon icon-bangzhu1"></text><view class="share-btn">告诉TA<text class="yticon icon-you"></text></view></button></block><view class="c-list" style="padding:0 34rpx 0 30rpx;"><block wx:if="{{couponList.length>0}}"><view data-event-opts="{{[['tap',[['toggleMask',['show']]]]]}}" class="c-row b-b" bindtap="__e"><text class="tit">优惠券</text><text class="con t-r" style="font-size:28rpx;line-height:40rpx;color:#FE9F43;">领取优惠券</text><text class="yticon icon-you"></text></view></block><view class="c-row b-b" style="align-items:flex-start;"><text class="tit">配送费用</text><view class="con-list">全场免运费</view></view><block wx:for="{{goods.attributeList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="c-row b-b"><text class="tit">{{item.attribute}}</text><view class="bz-list con"><text>{{item.value}}</text></view></view></block></view><block wx:if="{{goods.appraisePage&&goods.appraisePage.items.length>0}}"><view class="eva-section"><view class="e-header"><text class="tit">评价</text><text>{{"("+goods.appraisePage.items.length+")"}}</text><text data-event-opts="{{[['tap',[['navAllAppraise',['$event']]]]]}}" class="tip" bindtap="__e">全部评论</text><text class="yticon icon-you"></text></view><view class="eva-box"><image class="portrait" src="{{goods.appraisePage.items[0].userAvatarUrl?goods.appraisePage.items[0].userAvatarUrl:'/static/user/touxiang-@2x.png'}}" mode="aspectFill"></image><view class="right"><text class="name">{{goods.appraisePage.items[0].userNickName?goods.appraisePage.items[0].userNickName:'用户'+goods.appraisePage.items[0].userId}}</text><text class="con">{{goods.appraisePage.items[0].content}}</text><view class="bot"><text class="attr">{{"购买类型："+goods.appraisePage.items[0].skuTitle}}</text><text class="time">{{$root.m0}}</text></view></view></view></view></block><view class="detail-desc padding-lr"><view class="text-black padding-tb-lg " style="line-height:50rpx;font-size:36rpx;font-weight:bold;">商品详情</view><rich-text style="font-size:28rpx;" nodes="{{goods.detail}}"></rich-text></view><view class="bg-white flex align-end" style="position:fixed;bottom:0;width:750rpx;height:98rpx;padding-left:38rpx;"><view data-event-opts="{{[['tap',[['navCart',['$event']]]]]}}" class="flex align-end" style="width:346rpx;height:98rpx;padding-bottom:16rpx;" bindtap="__e"><view style="position:relative;"><image style="width:56rpx;height:52rpx;" src="../../static/tab-icon/tab3_2.png" mode="aspectFit"></image><block wx:if="{{cartNum}}"><view class="badge round">{{cartNum}}</view></block></view><view style="font-size:28rpx;line-height:40rpx;color:#8D8E99;padding-left:40rpx;">{{'已选'+cartNum+'件'}}</view></view><view data-event-opts="{{[['tap',[['addCart',['$event']]]]]}}" class="flex align-center justify-center bg-green " style="font-size:28rpx;line-height:40rpx;width:404rpx;height:98rpx;" bindtap="__e">加入购物车</view></view><view data-event-opts="{{[['tap',[['toggleMask',['$event']]]]]}}" class="{{['mask',maskState===0?'none':maskState===1?'show':'']}}" bindtap="__e"><view data-event-opts="{{[['tap',[['stopPrevent',['$event']]]]]}}" class="mask-content" catchtap="__e"><block wx:for="{{couponList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['obtainCoupon',[index]]]]]}}" class="coupon-item" bindtap="__e"><view class="con"><view class="left"><text class="title">{{item.title}}</text><block wx:if="{{item.gmtEnd}}"><text class="time">{{"在"+item.gmtEnd+"前有效。 可领"+item.limit+"张，已领"+item.nowCount+"张"}}</text></block><block wx:if="{{!item.gmtEnd}}"><text class="time">{{"在领取后"+item.days+"天内有效。可领"+item.limit+"张，已领"+item.nowCount+"张"}}</text></block></view><view class="right"><text class="price">{{item.discount/100.0}}</text><text>{{"满"+item.min/100.0+"可用"}}</text></view><view class="circle l"></view><view class="circle r"></view></view><text class="tips">{{item.categoryTitle?'限'+item.categoryTitle+'可用':'全品类可用'}}</text></view></block></view></view><view data-event-opts="{{[['tap',[['toggleMask1',['$event']]]]]}}" class="{{['mask',shareShow===0?'none':shareShow===1?'show':'']}}" bindtap="__e"><view data-event-opts="{{[['tap',[['stopPrevent',['$event']]]]]}}" class="mask-content bg-white" style="z-index:999999;" catchtap="__e"><view class="flex align-center justify-center" style="padding:60rpx 0 50rpx 0;"><image style="width:100rpx;height:2rpx;" src="../../static/line.png" mode="aspectFit"></image><view style="padding:0 12rpx 0 16rpx;font-size:30rpx;line-height:42rpx;color:#333333;">分享至</view><image style="width:100rpx;height:2rpx;" src="../../static/line.png" mode="aspectFit"></image></view><view class="solid-bottom flex flex-wrap" style="padding:0 0 50rpx 40rpx;margin:0 44rpx 0 42rpx;"><view data-event-opts="{{[['tap',[['share',['miniwechat']]]]]}}" style="text-align:center;" bindtap="__e"><button class="round" style="width:88rpx;height:88rpx;padding:0;" open-type="share"><image class="round" style="width:88rpx;height:88rpx;" src="../../static/login/weixindefuben@3x.png" mode="aspectFit"></image></button><view style="font-size:24rpx;line-height:34rpx;color:#999999;padding-top:26rpx;">微信</view></view></view><view data-event-opts="{{[['tap',[['toggleMask1',['$event']]]]]}}" class="flex justify-center align-center" style="padding:34rpx 0 24rpx;font-size:30rpx;line-height:42rpx;color:#333333;" bindtap="__e">取消</view></view></view><view data-event-opts="{{[['touchmove',[['stopPrevent',['$event']]]]]}}" class="{{['popup','spec',specClass]}}" catchtouchmove="__e"><view class="mask"></view><view data-event-opts="{{[['tap',[['stopPrevent',['$event']]]]]}}" class="layer attr-content" catchtap="__e"><view class="a-t"><block wx:if="{{goods.img}}"><image src="{{selectedSku.img?selectedSku.img:goods.img}}"></image></block><view class="right"><text class="price">{{"¥"+(isVip?selectedSku.vipPrice/100.0+' [VIP]':selectedSku.price/100.0)}}</text><text class="stock">{{"库存："+selectedSku.stock+"件"}}</text><view class="selected">已选：<text>{{''+selectedSku.title+''}}</text></view></view></view><view class="attr-list"><view class="item-list"><block wx:for="{{goods.skuList}}" wx:for-item="skuItem" wx:for-index="skuIndex" wx:key="skuIndex"><text data-event-opts="{{[['tap',[['selectSpec',['$0',skuIndex],[[['goods.skuList','',skuIndex]]]]]]]}}" class="{{['tit',(skuIndex===selectedSkuIndex)?'selected':'']}}" bindtap="__e">{{''+skuItem.title+''}}</text></block></view></view><button data-event-opts="{{[['tap',[['toggleSpec',['$event']]]]]}}" class="btn" bindtap="__e">完成</button></view></view></view>
+<view class="container">
+  <view class="carousel">
+    <swiper indicator-active-color="#2AAC34" indicator-dots="{{true}}" circular="true" duration="400">
+      <block wx:for="{{goods.imgList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <swiper-item class="swiper-item">
+          <view class="image-wrapper">
+            <image class="loaded" src="{{item}}" mode="aspectFit"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="introduce-section">
+    <view class="text-2-cut " style="font-size:36rpx;font-weight:bold;line-height:50rpx;color:#333333;width:686rpx;">{{goods.title}}</view>
+    <view class="flex align-start justify-between padding-top-sm">
+      <view class="text-cut" style="width:580rpx;font-size:28rpx;line-height:40rpx;color:#8D8E99;">{{''+goods.description+''}}</view>
+      <view class="flex">
+        <view data-event-opts="{{[['tap',[['toFavorite',['$event']]]]]}}" style="text-align:center;" bindtap="__e">
+          <image style="width:42rpx;height:42rpx;" src="../../static/product/collect.png" mode="aspectFit"></image>
+          <view style="font-size:20rpx;line-height:28rpx;padding-top:10rpx;">收藏</view>
+        </view>
+        <view data-event-opts="{{[['tap',[['e0',['$event']]]]]}}" style="text-align:center;padding-left:40rpx;padding-right:6rpx;" bindtap="__e">
+          <image style="width:42rpx;height:42rpx;" src="../../static/product/share.png" mode="aspectFit"></image>
+          <view style="font-size:20rpx;line-height:28rpx;padding-top:10rpx;">分享</view>
+        </view>
+      </view>
+    </view>
+    <view class="flex align-center justify-between ">
+      <view>
+        <view class="flex align-center">
+          <view class="text-green" style="font-size:40rpx;line-height:56rpx;font-weight:600;">{{'￥'+goods.stockDto.price/100+''}}</view>
+          <block wx:if="{{zhekou>=0}}">
+            <view class="bg-gradual-orange margin-left-sm" style="border-radius:4rpx;padding:0 8rpx;line-height:34rpx;font-size:24rpx;">{{''+zhekou+'折'}}</view>
+          </block>
+        </view>
+        <view style="font-size:28rpx;color:#8D8E99;line-height:40rpx;text-decoration:line-through;padding:10rpx;">{{'￥'+goods.originalPrice/100+"/"+goods.unit+''}}</view>
+      </view>
+      <view style="font-size:28rpx;color:#8D8E99;line-height:40rpx;">{{''+goods.stockDto.sales+'人购买'}}</view>
+    </view>
+  </view>
+  <block wx:if="{{goods.groupShop}}"><button class="share-section" open-type="share">
+      <view class="share-icon"><text class="yticon icon-xingxing"></text>团</view><text class="tit">{{goods.groupShop.minimumNumber+"人成团，已有"+goods.groupShop.alreadyBuyNumber+"人参团"}}</text><text class="yticon icon-bangzhu1"></text>
+      <view class="share-btn">告诉TA<text class="yticon icon-you"></text></view>
+    </button></block>
+  <view class="c-list" style="padding:0 34rpx 0 30rpx;">
+    <block wx:if="{{couponList.length>0}}">
+      <view data-event-opts="{{[['tap',[['toggleMask',['show']]]]]}}" class="c-row b-b" bindtap="__e"><text class="tit">优惠券</text><text class="con t-r" style="font-size:28rpx;line-height:40rpx;color:#FE9F43;">领取优惠券</text><text class="yticon icon-you"></text></view>
+    </block>
+    <view class="c-row b-b" style="align-items:flex-start;"><text class="tit">配送费用</text>
+      <view class="con-list">全场免运费</view>
+    </view>
+    <block wx:for="{{goods.attributeList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="c-row b-b"><text class="tit">{{item.attribute}}</text>
+        <view class="bz-list con"><text>{{item.value}}</text></view>
+      </view>
+    </block>
+  </view>
+  <block wx:if="{{goods.appraisePage&&goods.appraisePage.items.length>0}}">
+    <view class="eva-section">
+      <view class="e-header"><text class="tit">评价</text><text>{{"("+goods.appraisePage.items.length+")"}}</text><text data-event-opts="{{[['tap',[['navAllAppraise',['$event']]]]]}}" class="tip" bindtap="__e">全部评论</text><text class="yticon icon-you"></text></view>
+      <view class="eva-box">
+        <image class="portrait" src="{{goods.appraisePage.items[0].userAvatarUrl?goods.appraisePage.items[0].userAvatarUrl:'/static/user/touxiang-@2x.png'}}" mode="aspectFill"></image>
+        <view class="right"><text class="name">{{goods.appraisePage.items[0].userNickName?goods.appraisePage.items[0].userNickName:'用户'+goods.appraisePage.items[0].userId}}</text><text class="con">{{goods.appraisePage.items[0].content}}</text>
+          <view class="bot"><text class="attr">{{"购买类型："+goods.appraisePage.items[0].skuTitle}}</text><text class="time">{{$root.m0}}</text></view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="detail-desc padding-lr">
+    <view class="text-black padding-tb-lg " style="line-height:50rpx;font-size:36rpx;font-weight:bold;">商品详情</view>
+    <rich-text style="font-size:28rpx;" nodes="{{goods.detail}}"></rich-text>
+  </view>
+  <view class="bg-white flex align-end" style="position:fixed;bottom:0;width:750rpx;height:98rpx;padding-left:38rpx;">
+    <view data-event-opts="{{[['tap',[['navCart',['$event']]]]]}}" class="flex align-end" style="width:346rpx;height:98rpx;padding-bottom:16rpx;" bindtap="__e">
+      <view style="position:relative;">
+        <image style="width:56rpx;height:52rpx;" src="../../static/tab-icon/tab3_2.png" mode="aspectFit"></image>
+        <block wx:if="{{cartNum}}">
+          <view class="badge round">{{cartNum}}</view>
+        </block>
+      </view>
+      <view style="font-size:28rpx;line-height:40rpx;color:#8D8E99;padding-left:40rpx;">{{'已选'+cartNum+'件'}}</view>
+    </view>
+    <view data-event-opts="{{[['tap',[['addCart',['$event']]]]]}}" class="flex align-center justify-center bg-green " style="font-size:28rpx;line-height:40rpx;width:404rpx;height:98rpx;" bindtap="__e">加入购物车</view>
+  </view>
+  <view data-event-opts="{{[['tap',[['toggleMask',['$event']]]]]}}" class="{{['mask',maskState===0?'none':maskState===1?'show':'']}}" bindtap="__e">
+    <view data-event-opts="{{[['tap',[['stopPrevent',['$event']]]]]}}" class="mask-content" catchtap="__e">
+      <block wx:for="{{couponList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view data-event-opts="{{[['tap',[['obtainCoupon',[index]]]]]}}" class="coupon-item" bindtap="__e">
+          <view class="con">
+            <view class="left"><text class="title">{{item.title}}</text>
+              <block wx:if="{{item.gmtEnd}}"><text class="time">{{"在"+item.gmtEnd+"前有效。 可领"+item.limit+"张，已领"+item.nowCount+"张"}}</text></block>
+              <block wx:if="{{!item.gmtEnd}}"><text class="time">{{"在领取后"+item.days+"天内有效。可领"+item.limit+"张，已领"+item.nowCount+"张"}}</text></block>
+            </view>
+            <view class="right"><text class="price">{{item.discount/100.0}}</text><text>{{"满"+item.min/100.0+"可用"}}</text></view>
+            <view class="circle l"></view>
+            <view class="circle r"></view>
+          </view><text class="tips">{{item.categoryTitle?'限'+item.categoryTitle+'可用':'全品类可用'}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view data-event-opts="{{[['tap',[['toggleMask1',['$event']]]]]}}" class="{{['mask',shareShow===0?'none':shareShow===1?'show':'']}}" bindtap="__e">
+    <view data-event-opts="{{[['tap',[['stopPrevent',['$event']]]]]}}" class="mask-content bg-white" style="z-index:999999;" catchtap="__e">
+      <view class="flex align-center justify-center" style="padding:60rpx 0 50rpx 0;">
+        <image style="width:100rpx;height:2rpx;" src="../../static/line.png" mode="aspectFit"></image>
+        <view style="padding:0 12rpx 0 16rpx;font-size:30rpx;line-height:42rpx;color:#333333;">分享至</view>
+        <image style="width:100rpx;height:2rpx;" src="../../static/line.png" mode="aspectFit"></image>
+      </view>
+      <view class="solid-bottom flex flex-wrap" style="padding:0 0 50rpx 40rpx;margin:0 44rpx 0 42rpx;">
+        <view data-event-opts="{{[['tap',[['share',['miniwechat']]]]]}}" style="text-align:center;" bindtap="__e"><button class="round" style="width:88rpx;height:88rpx;padding:0;" open-type="share">
+            <image class="round" style="width:88rpx;height:88rpx;" src="../../static/login/weixindefuben@3x.png" mode="aspectFit"></image>
+          </button>
+          <view style="font-size:24rpx;line-height:34rpx;color:#999999;padding-top:26rpx;">微信</view>
+        </view>
+      </view>
+      <view data-event-opts="{{[['tap',[['toggleMask1',['$event']]]]]}}" class="flex justify-center align-center" style="padding:34rpx 0 24rpx;font-size:30rpx;line-height:42rpx;color:#333333;" bindtap="__e">取消</view>
+    </view>
+  </view>
+  <view data-event-opts="{{[['touchmove',[['stopPrevent',['$event']]]]]}}" class="{{['popup','spec',specClass]}}" catchtouchmove="__e">
+    <view class="mask"></view>
+    <view data-event-opts="{{[['tap',[['stopPrevent',['$event']]]]]}}" class="layer attr-content" catchtap="__e">
+      <view class="a-t">
+        <block wx:if="{{goods.img}}">
+          <image src="{{selectedSku.img?selectedSku.img:goods.img}}"></image>
+        </block>
+        <view class="right"><text class="price">{{"¥"+(isVip?selectedSku.vipPrice/100.0+' [VIP]':selectedSku.price/100.0)}}</text><text class="stock">{{"库存："+selectedSku.stock+"件"}}</text>
+          <view class="selected">已选：<text>{{''+selectedSku.title+''}}</text></view>
+        </view>
+      </view>
+      <view class="attr-list">
+        <view class="item-list">
+          <block wx:for="{{goods.skuList}}" wx:for-item="skuItem" wx:for-index="skuIndex" wx:key="skuIndex"><text data-event-opts="{{[['tap',[['selectSpec',['$0',skuIndex],[[['goods.skuList','',skuIndex]]]]]]]}}" class="{{['tit',(skuIndex===selectedSkuIndex)?'selected':'']}}" bindtap="__e">{{''+skuItem.title+''}}</text></block>
+        </view>
+      </view><button data-event-opts="{{[['tap',[['toggleSpec',['$event']]]]]}}" class="btn" bindtap="__e">完成</button>
+    </view>
+  </view>
+</view>

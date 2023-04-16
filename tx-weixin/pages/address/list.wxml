@@ -1,1 +1,18 @@
-<view><block wx:for="{{addressList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['checkAddress',['$0'],[[['addressList','',index]]]]]],['longpress',[['deleteShow',['$0'],[[['addressList','',index]]]]]]]}}" class="bg-white" style="padding:30rpx;margin:20rpx 0;" bindtap="__e" bindlongpress="__e"><view class="flex justify-between align-center"><view style="font-size:32rpx;line-height:44rpx;color:#333333;font-weight:500;">{{''+item.address+''}}</view><view data-event-opts="{{[['tap',[['addAddress',['edit','$0'],[[['addressList','',index]]]]]]]}}" class="text-green" style="font-size:24rpx;line-height:34rpx;" catchtap="__e">编辑</view></view><view style="padding:22rpx 0;font-size:28rpx;line-height:40rpx;color:#333333;">{{''+item.province+item.city+item.county+''}}</view><view class="flex" style="font-size:28rpx;line-height:40rpx;color:#333333;"><block wx:if="{{item.defaultAddress}}"><view style="line-height:1.5;padding:0 10rpx;border-radius:8rpx;background-color:#2AAC34;color:#FFFFFF;margin-right:20rpx;">默认</view></block>{{''+item.consignee+" "+item.phone+''}}</view></view></block><view style="width:750rpx;display:flex;position:relative;height:144rpx;"></view><view class="flex justify-center " style="width:750rpx;position:fixed;bottom:0;background-color:#F6F6F6;"><button data-event-opts="{{[['tap',[['addAddress',['add']]]]]}}" class="round" style="background-color:#2AAC34;width:560rpx;height:90rpx;margin-bottom:54rpx;line-height:90rpx;color:#FFFFFF;" bindtap="__e">新增收货地址</button></view></view>
+<view>
+  <block wx:for="{{addressList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <view data-event-opts="{{[['tap',[['checkAddress',['$0'],[[['addressList','',index]]]]]],['longpress',[['deleteShow',['$0'],[[['addressList','',index]]]]]]]}}" class="bg-white" style="padding:30rpx;margin:20rpx 0;" bindtap="__e" bindlongpress="__e">
+      <view class="flex justify-between align-center">
+        <view style="font-size:32rpx;line-height:44rpx;color:#333333;font-weight:500;">{{''+item.address+''}}</view>
+        <view data-event-opts="{{[['tap',[['addAddress',['edit','$0'],[[['addressList','',index]]]]]]]}}" class="text-green" style="font-size:24rpx;line-height:34rpx;" catchtap="__e">编辑</view>
+      </view>
+      <view style="padding:22rpx 0;font-size:28rpx;line-height:40rpx;color:#333333;">{{''+item.province+item.city+item.county+''}}</view>
+      <view class="flex" style="font-size:28rpx;line-height:40rpx;color:#333333;">
+        <block wx:if="{{item.defaultAddress}}">
+          <view style="line-height:1.5;padding:0 10rpx;border-radius:8rpx;background-color:#2AAC34;color:#FFFFFF;margin-right:20rpx;">默认</view>
+        </block>{{''+item.consignee+" "+item.phone+''}}
+      </view>
+    </view>
+  </block>
+  <view style="width:750rpx;display:flex;position:relative;height:144rpx;"></view>
+  <view class="flex justify-center " style="width:750rpx;position:fixed;bottom:0;background-color:#F6F6F6;"><button data-event-opts="{{[['tap',[['addAddress',['add']]]]]}}" class="round" style="background-color:#2AAC34;width:560rpx;height:90rpx;margin-bottom:54rpx;line-height:90rpx;color:#FFFFFF;" bindtap="__e">新增收货地址</button></view>
+</view>
